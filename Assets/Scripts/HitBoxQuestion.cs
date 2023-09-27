@@ -31,7 +31,7 @@ public class HitBoxQuestion : MonoBehaviour
             StartCoroutine(SetActiveFalse());
             IEnumerator SetActiveFalse()
     {
-        yield return new WaitForSeconds(0.8);
+        yield return new WaitForSeconds(0.8f);
         rigidbody.bodyType  = RigidbodyType2D.Static;
     }
             
