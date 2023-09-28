@@ -9,12 +9,16 @@ public class HitBoxBrics : MonoBehaviour
     public bool canBeBumped = true;
     public bool coinGenerated = false;
 
+    private bool init_canBeBumped;
+    private bool init_coinGenerated;
+
     public AudioSource coinAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        init_canBeBumped = canBeBumped;
+        init_coinGenerated = coinGenerated;
     }
 
     // Update is called once per frame
@@ -47,5 +51,19 @@ public class HitBoxBrics : MonoBehaviour
         Instantiate(coinPrefab, transform.position + Vector3.up, Quaternion.identity);
         coinGenerated = true;
         coinAudio.PlayOneShot(coinAudio.clip);
+    }
+    public void RestartButtonCallback(int input)
+    {
+        //Debug.Log("Restart!");
+        // reset everything
+        ResetGame();
+        // resume time
+        
+    }
+    private void ResetGame()
+    {
+        canBeBumped = init_canBeBumped;
+        coinGenerated = init_coinGenerated;
+
     }
 }

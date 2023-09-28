@@ -31,7 +31,7 @@ public class HitBoxQuestion : MonoBehaviour
             StartCoroutine(SetActiveFalse());
             IEnumerator SetActiveFalse()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         rigidbody.bodyType  = RigidbodyType2D.Static;
     }
             
@@ -57,5 +57,20 @@ public class HitBoxQuestion : MonoBehaviour
         Instantiate(coinPrefab, transform.position + Vector3.up, Quaternion.identity);
         coinGenerated = true;
         coinAudio.PlayOneShot(coinAudio.clip);
+    }
+    public void RestartButtonCallback(int input)
+    {
+        //Debug.Log("Restart!");
+        // reset everything
+        ResetGame();
+        // resume time
+        
+    }
+    private void ResetGame()
+    {
+        canBeBumped = true;
+        coinGenerated = false;
+        rigidbody.bodyType  = RigidbodyType2D.Dynamic;
+        questionBoxAnimator.SetBool("canBump",true);
     }
 }

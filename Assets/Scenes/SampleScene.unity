@@ -441,6 +441,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1733946313}
+        m_TargetAssemblyTypeName: HitBoxQuestion, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2080452586}
+        m_TargetAssemblyTypeName: HitBoxBrics, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 873471555}
+        m_TargetAssemblyTypeName: HitBoxBrics, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7275190045423890454}
+        m_TargetAssemblyTypeName: HitBoxQuestion, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &255689969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4659808656208127841, guid: d62a77620c57f774ab65ba6b7073679f, type: 3}
@@ -2263,6 +2311,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1733946313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6304737732239887857, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+  m_PrefabInstance: {fileID: 393251161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733946304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0339768c465e7894ba710531eb77c854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1734243450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2330,6 +2389,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9156861382681408920, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
     - {fileID: 6304737732239887857, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+    - {fileID: -7834265145900601963, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2748,7 +2808,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1837825813}
+  m_TargetGraphic: {fileID: 255355705}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2763,7 +2823,55 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1733946313}
+        m_TargetAssemblyTypeName: HitBoxQuestion, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2080452586}
+        m_TargetAssemblyTypeName: HitBoxBrics, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 873471555}
+        m_TargetAssemblyTypeName: HitBoxBrics, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7275190045423890454}
+        m_TargetAssemblyTypeName: HitBoxQuestion, Assembly-CSharp
+        m_MethodName: RestartButtonCallback
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1953638220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,7 +3321,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 3
   m_AngularDrag: 0
-  m_GravityScale: 1.5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -3314,7 +3422,7 @@ MonoBehaviour:
   marioAudio: {fileID: 1994092114}
   marioDeath: {fileID: 8300000, guid: 40dab8f7d0df5d34cb8f51dcd2415159, type: 3}
   gameCamera: {fileID: 519420032}
-  deathImpulse: 0
+  deathImpulse: 10
   maxSpeed: 25
   upSpeed: 20
   jumpOverGoomba: {fileID: 1994092112}
@@ -4311,6 +4419,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7275190045423890454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6304737732239887857, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+  m_PrefabInstance: {fileID: 6116546019029942489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015674464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0339768c465e7894ba710531eb77c854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

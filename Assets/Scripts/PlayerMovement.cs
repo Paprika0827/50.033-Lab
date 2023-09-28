@@ -111,8 +111,7 @@ public class Movement : MonoBehaviour
           marioAudio.PlayOneShot(marioDeath);
           alive = false;
           finalText.text = "Score: " + jumpOverGoomba.score.ToString();
-          ShowGameOverUI();
-          Time.timeScale = 0.0f;
+          
       }
   }
     void PlayDeathImpulse()
@@ -133,7 +132,10 @@ public class Movement : MonoBehaviour
         // reset everything
         ResetGame();
         // resume time
+        
         Time.timeScale = 1.0f;
+    
+        
     }
     public JumpOverGoomba jumpOverGoomba;
     private void ResetGame()
