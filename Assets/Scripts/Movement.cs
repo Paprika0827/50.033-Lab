@@ -116,6 +116,7 @@ public class Movement : MonoBehaviour
   }
     void PlayDeathImpulse()
     {
+        Debug.Log("Death Impulse");
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
     }
     private void HideGameOverUI(){
@@ -160,6 +161,21 @@ public class Movement : MonoBehaviour
         gameCamera.position = new Vector3(0, 0, -10);
 
     }
+        public void GameRestart()
+    {
+        // reset position
+        marioBody.transform.position = new Vector3(-5.33f, -4.69f, 0.0f);
+        // reset sprite direction
+        faceRightState = true;
+        marioSprite.flipX = false;
+
+        // reset animation
+        marioAnimator.SetTrigger("gameRestart");
+        alive = true;
+
+        // reset camera position
+        gameCamera.position = new Vector3(0, 0, -10);
+    }
 
     
 
@@ -170,7 +186,7 @@ public class Movement : MonoBehaviour
         marioAudio.PlayOneShot(marioAudio.clip);
         
     }
-
+    
     void GameOverScene()
     {
         // stop time

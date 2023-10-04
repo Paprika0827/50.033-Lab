@@ -10,6 +10,7 @@ public class HitBoxQuestion : MonoBehaviour
     public bool coinGenerated = false;
 
     private Rigidbody2D rigidbody;
+    public GameManager gameManager;
     public Animator questionBoxAnimator;
     public AudioSource coinAudio;
     // Start is called before the first frame update
@@ -56,6 +57,7 @@ public class HitBoxQuestion : MonoBehaviour
     {
         Instantiate(coinPrefab, transform.position + Vector3.up, Quaternion.identity);
         coinGenerated = true;
+        gameManager.IncreaseScore(200);
         coinAudio.PlayOneShot(coinAudio.clip);
     }
     public void RestartButtonCallback(int input)

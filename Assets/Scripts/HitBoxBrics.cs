@@ -6,6 +6,8 @@ public class HitBoxBrics : MonoBehaviour
 {
     public GameObject coinPrefab;
 
+    public GameManager gameManager;
+
     public bool canBeBumped = true;
     public bool coinGenerated = false;
 
@@ -50,6 +52,7 @@ public class HitBoxBrics : MonoBehaviour
     {
         Instantiate(coinPrefab, transform.position + Vector3.up, Quaternion.identity);
         coinGenerated = true;
+        gameManager.IncreaseScore(200);
         coinAudio.PlayOneShot(coinAudio.clip);
     }
     public void RestartButtonCallback(int input)

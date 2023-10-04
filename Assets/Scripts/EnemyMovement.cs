@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     private float originalX;
     private float maxOffset = 5.0f;
     private float enemyPatroltime = 2.0f;
+    public float TravelTime { get { return enemyPatroltime; } set { enemyPatroltime = value; } }
     private int moveRight = -1;
     private Vector2 velocity;
 
@@ -48,4 +49,5 @@ public class EnemyMovement : MonoBehaviour
   {
      Debug.Log(other.gameObject.name);
   }
+
 }
