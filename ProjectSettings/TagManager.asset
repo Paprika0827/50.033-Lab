@@ -19,7 +19,7 @@ TagManager:
   - Obstacles
   - Enemies
   - Mario
-  - 
+  - Interactive
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Castle
+    uniqueID: 4095480945
     locked: 0
