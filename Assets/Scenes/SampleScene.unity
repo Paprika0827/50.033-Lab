@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7834265145900601963, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2493516940678257408, guid: 833cfabea3bdc7d4c91a9590a2cf06f3, type: 2}
     - target: {fileID: 434791216286379552, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
@@ -1879,7 +1883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goombaPrefab: {fileID: 3762649170413355230, guid: d62a77620c57f774ab65ba6b7073679f, type: 3}
   audioSource: {fileID: 1209356813}
-  coin: {fileID: 8300000, guid: d885ffc842af744d89f7d595ffcc176a, type: 3}
+  coin: {fileID: 8300000, guid: 6f487163c53194893952b1f457060b86, type: 3}
   gameObjects: []
   goombaPosition:
   - {x: 5, y: 0, z: 0}
@@ -1896,7 +1900,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3690726345832095017, guid: 833cfabea3bdc7d4c91a9590a2cf06f3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d885ffc842af744d89f7d595ffcc176a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6f487163c53194893952b1f457060b86, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2368,6 +2372,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7834265145900601963, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2493516940678257408, guid: 833cfabea3bdc7d4c91a9590a2cf06f3, type: 2}
     - target: {fileID: 194517531903696993, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3954,6 +3962,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7834265145900601963, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2493516940678257408, guid: 833cfabea3bdc7d4c91a9590a2cf06f3, type: 2}
     - target: {fileID: 434791216286379552, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
