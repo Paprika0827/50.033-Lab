@@ -635,7 +635,7 @@ TextureImporter:
         width: 40
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -643,6 +643,132 @@ TextureImporter:
       bones: []
       spriteID: 919d67548cde4f344bfa90a836ea68c0
       internalID: -922308070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underground
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 891
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a5be626bb7e3046892df684c2a898d
+      internalID: 1099255162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underground_ground
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d7f4de9e47af94d8c038c5dd96d152
+      internalID: -1648649506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mushroom
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1193
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5fbc55ebf86de4a940b567aeaa91ec
+      internalID: -361647236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1133
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036b6deb1dc312142bc5274631140dbd
+      internalID: 1423424512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1133
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7de2eab2ebd8141882022b9271b4a4
+      internalID: 805541853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1133
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba39f6e352fbc74daa98d7ca5f2bc4a
+      internalID: 1666043192
       vertices: []
       indices: 
       edges: []
@@ -659,6 +785,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Brown_Ground: 1454669665
+      Star1: 1423424512
+      Underground: 1099255162
+      Underground_ground: -1648649506
       brick_1: 1362540563
       castle_1_left: 363798711
       castle_1_right: -922308070
@@ -677,12 +806,15 @@ TextureImporter:
       hill_b: -638348021
       hill_s: 1120663878
       misc-3_0: 173928582
+      mushroom: -361647236
       pipe_1: -460425214
       platform: -39227384
       question_1: -884613126
       question_2: 941260704
       question_3: -2056185727
       sky: -57002585
+      star2: 805541853
+      star3: 1666043192
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

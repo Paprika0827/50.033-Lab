@@ -13,6 +13,8 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = PlayerMovement.Instance.transform;
+        //GameManager.Instance.gameRestart.AddListener(Reset);
         // get coordinate of the bottomleft of the viewport
         // z doesn't matter since the camera is orthographic
         Vector3 bottomLeft =  Camera.main.ViewportToWorldPoint(new  Vector3(0, 0, 0));
@@ -20,14 +22,24 @@ public class CameraControl : MonoBehaviour
         offset  =  this.transform.position.x  -  player.position.x;
         startX  =  this.transform.position.x;
         endX  =  endLimit.transform.position.x  -  viewportHalfWidth;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         
+    }
+
+    private void Reset() {
+        transform.position = new Vector3(0, 0, -10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float desiredX =  player.position.x  +  offset;
+        float desiredX;
+        if ( player != null)
+        {
+            desiredX = player.position.x + offset;
+        }
+        else {
+            desiredX = this.transform.position.x;
+        }
         // check if desiredX is within startX and endX
         if (desiredX  >  startX  &&  desiredX  <  endX)
         this.transform.position  =  new  Vector3(desiredX, this.transform.position.y, this.transform.position.z);

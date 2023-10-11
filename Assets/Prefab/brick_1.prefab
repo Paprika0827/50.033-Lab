@@ -148,7 +148,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 327677415678013885, guid: 3fc12236de8cff247af3b63641ff06a2, type: 3}
   canBeBumped: 1
   coinGenerated: 1
-  coinAudio: {fileID: 0}
+  coin: 1
 --- !u!50 &-1312096677777964054
 Rigidbody2D:
   serializedVersion: 4
