@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4659808656208127841}
   - component: {fileID: 3623094441190480212}
-  - component: {fileID: 6187496123131214661}
   - component: {fileID: 8652869247951327123}
   - component: {fileID: 5964259061061999242}
   m_Layer: 8
-  m_Name: Goomba
+  m_Name: goomba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6187496123131214661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3762649170413355230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f787f104e15ef4a924dabb6dd60280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &8652869247951327123
 Rigidbody2D:
   serializedVersion: 4

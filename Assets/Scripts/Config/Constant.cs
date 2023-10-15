@@ -11,10 +11,12 @@ public static class Constants {
     public static float MarioUpSpeed = 20;
     public static float deathImpulse = 20;
     public static float StarmanTime = 10;
+    public static float flickerInterval = 0.1f;
 
     public static Vector3 BoxSize;
     public static Vector3 BigBoxSize;
     public static float MaxDistance;
     public static LayerMask LayerMask;
+    
 }
 

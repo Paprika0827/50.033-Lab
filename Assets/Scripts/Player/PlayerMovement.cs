@@ -7,20 +7,18 @@ using UnityEngine.Analytics;
 using UnityEngine.Events;
 using static UnityEditor.PlayerSettings;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour
 {
     private Vector3 startPos;
     
-    [System.NonSerialized]
     public bool alive = true;
     private bool onGroundState = true;
     private bool jumpedState = false;
     private bool faceRightState = true;
-    private bool invincibleState = false;
     private bool bigState = false;
 
     public Transform gameCamera;
-
+    public BoolVariable marioFaceRight;
     public GameObject marioPrefab;
     public GameObject bigMarioPrefab;
     public GameObject mario;
@@ -32,45 +30,35 @@ public class PlayerMovement : Singleton<PlayerMovement>
     public AudioClip marioDeath;
 
 
+    private void updateMarioShouldFaceRight(bool value) {
+        faceRightState = value;
+        marioFaceRight.SetValue(faceRightState);
+    }
 
-
-    override public void Awake() {
-        base.Awake();
-        GameManager.Instance.gameRestart.AddListener(GameRestart);
-        GameManager.Instance.changeLevel.AddListener(ChangeScene);
-        startPos = Levels.levels[0].MarioPosition;
-        
-        
+    public void Awake() {
+        //startPos = Levels.levels[0].MarioPosition;
+        startPos = transform.position;
     }
 
     public void ChangeScene(int level) {
         startPos = Levels.levels[level].MarioPosition;
         transform.position = startPos;
-
     }
   
 
     void Update() {
-        if (mario == null) {
-            mario = Instantiate(marioPrefab, startPos, Quaternion.identity);
-            marioSprite = mario.GetComponent<SpriteRenderer>();
-            marioBody = mario.GetComponent<Rigidbody2D>();
-            marioAnimator = mario.GetComponent<Animator>();
-            marioAudio = mario.GetComponent<AudioSource>();
-            marioAnimator.SetBool("onGround", onGroundState);
-        }
         if (marioAnimator!=null) marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
     }
 
     void FlipMarioSprite(int value) {
         if (value == -1 && faceRightState) {
-            faceRightState = false;
+            updateMarioShouldFaceRight(false);
             marioSprite.flipX = true;
             if (marioBody.velocity.x > 0.05f)
                 marioAnimator.SetTrigger("onSkid");
 
         } else if (value == 1 && !faceRightState) {
-            faceRightState = true;
+            updateMarioShouldFaceRight(true);
             marioSprite.flipX = false;
             if (marioBody.velocity.x < -0.05f)
                 marioAnimator.SetTrigger("onSkid");
@@ -78,11 +66,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
     }
     private bool moving = false;
     void FixedUpdate() {
-/*        if (alive) {
-            if (mario == null) {
-                init(marioPrefab, startPos);
-            }
-        }*/
         if (alive && moving) {
             Move(faceRightState == true ? 1 : -1);
         }
@@ -128,7 +111,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
         if (mario == null) { return; }
         if (alive && jumpedState) {
             // jump higher
-            marioBody.AddForce(Vector2.up * Constants.MarioUpSpeed * 30, ForceMode2D.Force);
+            marioBody.AddForce(Vector2.up * Constants.MarioUpSpeed * 20, ForceMode2D.Force);
             jumpedState = false;
 
         }
@@ -137,49 +120,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     void Start() {
         Application.targetFrameRate = 30;
-        if (mario != null) {
-            Debug.Log("Destroy mario on Awake");
-            Destroy(mario);
-        }
-        mario = Instantiate(marioPrefab, startPos, Quaternion.identity);
-        marioSprite = mario.GetComponent<SpriteRenderer>();
-        marioBody = mario.GetComponent<Rigidbody2D>();
-        marioAnimator = mario.GetComponent<Animator>();
-        marioAudio = mario.GetComponent<AudioSource>();
+        onGroundState = onGroundCheck();
+        // update animator state
         marioAnimator.SetBool("onGround", onGroundState);
     }
 
-
-    public void ApplyStarMan() {
-        if (mario == null) { return; }
-        invincibleState = true;
-        StartCoroutine(ToggleAfterDelay(Constants.StarmanTime));
-    }
-
-    public void ApplyMushroom() {
-        if (mario == null) { return; }
-        // change sprite
-        bigState = true;
-        if (mario != null) {
-            Debug.Log("Destroy mario");
-            Destroy(mario);
-        }
-        mario = Instantiate(bigMarioPrefab, transform.position + 0.5f * transform.up, Quaternion.identity);
-        marioSprite = mario.GetComponent<SpriteRenderer>();
-        marioBody = mario.GetComponent<Rigidbody2D>();
-        marioAnimator = mario.GetComponent<Animator>();
-        marioAudio = mario.GetComponent<AudioSource>();
-        marioAnimator.SetBool("onGround", onGroundState);
-
-    }
-
-    private IEnumerator ToggleAfterDelay(float delay) {
-
-        yield return new WaitForSeconds(delay);
-        invincibleState = false;
-        
-        Debug.Log("Starman Stopped");
-    }
 
 
 
@@ -192,58 +137,13 @@ public class PlayerMovement : Singleton<PlayerMovement>
             marioAnimator.SetBool("onGround", onGroundState);
         }
         if (col.gameObject.CompareTag("Enemy")) {
-            if (invincibleState == true) {
-                // 增加分数
-                Debug.Log("kicked enemy!");
-                GameManager.Instance.IncreaseScore(800);
-
-                Vector3 pos = col.gameObject.transform.position;
-                EnemyManager.Instance.PlaceSprite(pos);
-
-                Destroy(col.gameObject);
-                return;
-            }
             // 获取碰撞方向
             Vector2 collisionDirection = col.contacts[0].normal;
 
             // 如果是从上方碰撞
             if (collisionDirection == Vector2.up) {
                 // 增加分数
-                Debug.Log("Jumped on enemy!");
-                GameManager.Instance.IncreaseScore(800);
-
-                Vector3 pos = col.gameObject.transform.position;
-                EnemyManager.Instance.PlaceSprite(pos);
-
-                Destroy(col.gameObject);
             } else {
-                if (bigState) {
-                    // 变小
-                    bigState = false;
-                    if (mario != null) {
-                        Debug.Log("Destroy mario become small");
-                        Destroy(mario);
-                    }
-                    mario = Instantiate(marioPrefab, transform.position-0.5f*transform.up, Quaternion.identity);
-                    marioSprite = mario.GetComponent<SpriteRenderer>();
-                    marioBody = mario.GetComponent<Rigidbody2D>();
-                    marioAnimator = mario.GetComponent<Animator>();
-                    marioAudio = mario.GetComponent<AudioSource>();
-                    marioAnimator.SetBool("onGround", onGroundState);
-                    invincibleState = true;
-                    StartCoroutine(ToggleAfterDelay(0.5f));
-                } else {
-                    // 游戏结束
-                    marioAnimator.SetTrigger("die");
-                    marioAudio.PlayOneShot(marioDeath);
-                    marioBody.AddForce(Vector2.up * Constants.deathImpulse, ForceMode2D.Impulse);
-                    alive = false;
-                    StartCoroutine(GameOver());
-                    IEnumerator GameOver() {
-                        yield return new WaitForSeconds(0.5f);
-                        GameManager.Instance.GameOver();
-                    }
-                }
             }
         }
     }
@@ -261,20 +161,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     public void GameRestart() {
 
         Debug.Log("Restart!");
-        faceRightState = true;
-        marioSprite.flipX = false;
-        onGroundState = true;
-        alive = true;
-        if (mario != null) {
-            Debug.Log("Destroy mario on Reset");
-            Destroy(mario);
-        }
-        mario = Instantiate(marioPrefab, startPos, Quaternion.identity);
-        marioSprite = mario.GetComponent<SpriteRenderer>();
-        marioBody = mario.GetComponent<Rigidbody2D>();
-        marioAnimator = mario.GetComponent<Animator>();
-        marioAudio = mario.GetComponent<AudioSource>();
-        marioAnimator.SetBool("onGround", onGroundState);
+
         
     }
 

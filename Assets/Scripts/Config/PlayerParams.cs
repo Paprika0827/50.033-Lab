@@ -10,17 +10,18 @@ using UnityEngine;
         public float MarioUpSpeed = 20;
         public float deathImpulse = 20;
         public float StarmanTime = 10;
+    public float flickerInterval = 0.1f;
 
     public Vector3 BoxSize;
     public Vector3 BigBoxSize;
     public float MaxDistance;
     public LayerMask LayerMask; 
 
-    private Action reloadCallback;
+/*    private Action reloadCallback;
         public void SetReloadCallback(Action onReload)
         {
             this.reloadCallback = onReload;
-        }
+        }*/
 
         public void OnValidate()
         {
@@ -40,6 +41,7 @@ using UnityEngine;
         Constants.deathImpulse = deathImpulse;
         Constants.StarmanTime = StarmanTime;     
         Constants.BigBoxSize = BigBoxSize;
-        reloadCallback?.Invoke();
+        Constants.flickerInterval = flickerInterval;
+        //reloadCallback?.Invoke();
         }
     }
