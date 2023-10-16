@@ -18,5 +18,11 @@ MonoBehaviour:
   actions: []
   eventTriggeredActions: []
   exitActions: []
-  transitions: []
-  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  transitions:
+  - decision: {fileID: 11400000, guid: 503ada328d15e3f45947a5dcc08f617b, type: 2}
+    trueState: {fileID: 11400000, guid: 9dc6b193258c39740bb5ea0ee482163d, type: 2}
+    falseState: {fileID: 11400000, guid: 2fb3ef7dfd0311f4cb0821b930a22816, type: 2}
+  - decision: {fileID: 11400000, guid: 215e1dc4cfb5bf94d9e47a70429abf95, type: 2}
+    trueState: {fileID: 11400000, guid: 53c6e0e78e2c3064bb2509d594aa7fa4, type: 2}
+    falseState: {fileID: 11400000, guid: 2fb3ef7dfd0311f4cb0821b930a22816, type: 2}
+  sceneGizmoColor: {r: 0.5943396, g: 0.11027052, b: 0.5489348, a: 1}

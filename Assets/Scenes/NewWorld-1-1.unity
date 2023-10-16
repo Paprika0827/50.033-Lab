@@ -3336,9 +3336,10 @@ GameObject:
   - component: {fileID: 1868910288}
   - component: {fileID: 1868910287}
   - component: {fileID: 1868910295}
-  m_Layer: 0
+  - component: {fileID: 1868910296}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3371,16 +3372,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
-  gameCamera: {fileID: 0}
   marioFaceRight: {fileID: 11400000, guid: d11bc58309e6a3342ae79589050f7408, type: 2}
-  marioPrefab: {fileID: 0}
-  bigMarioPrefab: {fileID: 0}
   mario: {fileID: 1868910285}
   marioSprite: {fileID: 1868910292}
   marioBody: {fileID: 1868910290}
   marioAnimator: {fileID: 1868910293}
   marioAudio: {fileID: 1868910294}
   marioDeath: {fileID: 8300000, guid: 40dab8f7d0df5d34cb8f51dcd2415159, type: 3}
+  playerParams: {fileID: 11400000, guid: 6af1d53aa2f069a42888895ae9e69016, type: 2}
 --- !u!114 &1868910288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3552,7 +3551,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 0.9375, y: 0.875}
   m_EdgeRadius: 0
@@ -3618,7 +3617,7 @@ Animator:
   m_GameObject: {fileID: 1868910285}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ccbbf8d2117009a47a1366bcb75dc111, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74eea7ad65b4ebf4da8de3cfe35b555f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3740,10 +3739,29 @@ MonoBehaviour:
   startState: {fileID: 11400000, guid: 9dc6b193258c39740bb5ea0ee482163d, type: 2}
   previousState: {fileID: 0}
   currentState: {fileID: 0}
-  remainState: {fileID: 0}
+  remainState: {fileID: 11400000, guid: 2fb3ef7dfd0311f4cb0821b930a22816, type: 2}
   transitionStateChanged: 0
   stateTimeElapsed: 0
   currentPowerupType: -1
+  shouldBeNextState: -1
+--- !u!114 &1868910296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868910285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bcb76d8027676d41b751e07001044b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startState: {fileID: 0}
+  previousState: {fileID: 0}
+  currentState: {fileID: 0}
+  remainState: {fileID: 11400000, guid: 2fb3ef7dfd0311f4cb0821b930a22816, type: 2}
+  transitionStateChanged: 0
+  stateTimeElapsed: 0
   shouldBeNextState: -1
 --- !u!1 &1944558744
 GameObject:
@@ -4095,63 +4113,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142379295}
   m_CullTransparentMesh: 1
---- !u!1001 &8921706149413737671
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5880946169861292156, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_Name
-      value: Fireball
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992772775086871299, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4168,4 +4129,3 @@ SceneRoots:
   - {fileID: 1337545861}
   - {fileID: 1868910286}
   - {fileID: 433403626}
-  - {fileID: 8921706149413737671}

@@ -3,13 +3,14 @@
 [CreateAssetMenu(menuName = "PluggableSM/Actions/FireAttack")]
 public class FireAttackAction : Action {
     public int maxPrefabInScene = 3;
-    public float impulseForce = 1;
+    public float impulseForce = 8;
     public float degree = 45;
     public GameObject attackPrefab;
     // a scriptable object updated by PlayerMovement / PlayerController to store current Mario's facing
     public BoolVariable marioFaceRight;
 
     public override void Act(StateController controller) {
+        Debug.Log(marioFaceRight.Value);
         GameObject[] instantiatedPrefabsInScene = GameObject.FindGameObjectsWithTag(attackPrefab.tag);
         if (instantiatedPrefabsInScene.Length < maxPrefabInScene) {
             // instantiate it where controller (mario) is
@@ -22,6 +23,7 @@ public class FireAttackAction : Action {
                 // compute direction vector
                 Vector2 direction = CalculateDirection(degree, marioFaceRight.Value);
                 // Apply a rightward impulse force to the object
+                Debug.Log("direction: " + direction * impulseForce);
                 rb.AddForce(direction * impulseForce, ForceMode2D.Impulse);
             }
 
@@ -41,7 +43,7 @@ public class FireAttackAction : Action {
         if (!isFacingRight) {
             x = -x;
         }
-
+        Debug.Log("x: " + x + " y: " + y);
         return new Vector2(x, y);
     }
 }

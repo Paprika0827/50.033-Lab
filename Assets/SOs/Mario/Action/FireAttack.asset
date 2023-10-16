@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71cadf9a5f6dcf648b801a9d0ef0daad, type: 3}
   m_Name: FireAttack
   m_EditorClassIdentifier: 
-  maxPrefabInScene: 3
+  maxPrefabInScene: 4
   impulseForce: 1
   degree: 45
   attackPrefab: {fileID: 5880946169861292156, guid: bc1adc431a868fb48a2ddde3af640799, type: 3}

@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cce28bbfbc4b5b40b1035b8a06862d2, type: 3}
-  m_Name: RemainInState
+  m_Script: {fileID: 11500000, guid: 23152d7ee8859b542adb13483bcf8d4e, type: 3}
+  m_Name: MarioOnGround
   m_EditorClassIdentifier: 
-  setupActions: []
-  actions: []
-  eventTriggeredActions: []
-  exitActions: []
-  transitions: []
-  sceneGizmoColor: {r: 0.14526623, g: 0.5377358, b: 0.07440364, a: 1}
+  DeveloperDescription: 
+  previousHighestValue: 0

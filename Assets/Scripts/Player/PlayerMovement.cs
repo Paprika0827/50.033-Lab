@@ -15,12 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private bool onGroundState = true;
     private bool jumpedState = false;
     private bool faceRightState = true;
-    private bool bigState = false;
 
-    public Transform gameCamera;
     public BoolVariable marioFaceRight;
-    public GameObject marioPrefab;
-    public GameObject bigMarioPrefab;
     public GameObject mario;
 
     public SpriteRenderer marioSprite;
@@ -28,16 +24,22 @@ public class PlayerMovement : MonoBehaviour
     public Animator marioAnimator;
     public AudioSource marioAudio;
     public AudioClip marioDeath;
+    
+    public PlayerParams playerParams;
 
 
     private void updateMarioShouldFaceRight(bool value) {
         faceRightState = value;
         marioFaceRight.SetValue(faceRightState);
+        Debug.Log("Mario should face right: " + marioFaceRight.Value);
     }
 
     public void Awake() {
         //startPos = Levels.levels[0].MarioPosition;
         startPos = transform.position;
+        if (this.playerParams != null) {
+            playerParams.ReloadParams();
+        }
     }
 
     public void ChangeScene(int level) {
@@ -166,31 +168,20 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool onGroundCheck() {
-        if (mario == null) { return false; }
-        if (!bigState) {
-            if (Physics2D.BoxCast(mario.transform.position, Constants.BoxSize, 0, -mario.transform.up, Constants.MaxDistance, Constants.LayerMask)) {
-                //Debug.Log("on ground");
-                return true;
-            } else {
-                //Debug.Log("not on ground");
-                return false;
-            }
+        Vector2 Boxsize = gameObject.GetComponent<BoxCollider2D>().size;
+        if (Physics2D.BoxCast(mario.transform.position, Boxsize, 0, -mario.transform.up, Constants.MaxDistance, Constants.LayerMask)) {
+            //Debug.Log("on ground");
+            return true;
         } else {
-        if (Physics2D.BoxCast(mario.transform.position, Constants.BoxSize, 0, -mario.transform.up, Constants.MaxDistance+1, Constants.LayerMask)) {
-                //Debug.Log("on ground"); 
-                return true;
-            } else {
-                //Debug.Log("not on ground");
-                return false;
-            }
+            //Debug.Log("not on ground");
+            return false;
         }
     }
-
+     
     void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
-        if (mario != null) {
-            Gizmos.DrawCube(mario.transform.position - mario.transform.up * Constants.MaxDistance, Constants.BoxSize);
-        }
+        Vector2 Boxsize = gameObject.GetComponent<BoxCollider2D>().size;
+        Gizmos.DrawCube(mario.transform.position - mario.transform.up * Constants.MaxDistance, Boxsize);
     }
 
     void PlayJumpSound() {
