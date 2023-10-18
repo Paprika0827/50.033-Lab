@@ -8,13 +8,14 @@ public enum MarioState {
     SuperMario = 1,
     FireMario = 2,
     InvincibleSmallMario = 3,
-    DeadMario = 99
+    DeadMario = 99,
+    Normal = 10,
+    Invincible = 11,
 }
 
 
 
 public class MarioStateController : StateController {
-    public PowerupType currentPowerupType = PowerupType.Default;
     public MarioState shouldBeNextState = MarioState.Default;
     private SpriteRenderer spriteRenderer;
 
@@ -34,7 +35,7 @@ public class MarioStateController : StateController {
             spriteRenderer.enabled = !spriteRenderer.enabled;
 
             // Wait for the specified blink interval
-            yield return new WaitForSeconds(Constants.flickerInterval);
+            yield return new WaitForSeconds(Constants.FlickerInterval);
         }
 
         spriteRenderer.enabled = true;

@@ -11,7 +11,7 @@ public abstract class BasePowerup : MonoBehaviour, IPowerup {
 
     // base methods
     protected virtual void Start() {
-        GameManager.Instance.gameRestart.AddListener(DestroyPowerup);
+        //GameManager.Instance.gameRestart.AddListener(DestroyPowerup);
         rigidBody = GetComponent<Rigidbody2D>();
     }
 

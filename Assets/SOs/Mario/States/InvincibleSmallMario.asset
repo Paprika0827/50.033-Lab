@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cce28bbfbc4b5b40b1035b8a06862d2, type: 3}
   m_Name: InvincibleSmallMario
   m_EditorClassIdentifier: 
-  setupActions: []
+  setupActions:
+  - {fileID: 11400000, guid: 346b6e8f88d0c6644a0a988c4d74a909, type: 2}
+  - {fileID: 11400000, guid: dcbfbd374527c274f96271e890c0dafe, type: 2}
+  - {fileID: 11400000, guid: 2c069a28ccdf6f7429a15f4682c3ad05, type: 2}
   actions: []
   eventTriggeredActions: []
   exitActions: []

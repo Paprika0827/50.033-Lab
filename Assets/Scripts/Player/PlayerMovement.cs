@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector3 startPos;
     
-    public bool alive = true;
+    public bool alive = false;
+    public bool Invincible = false;
     private bool onGroundState = true;
     private bool jumpedState = false;
     private bool faceRightState = true;
@@ -28,27 +29,22 @@ public class PlayerMovement : MonoBehaviour
     public PlayerParams playerParams;
 
 
+
     private void updateMarioShouldFaceRight(bool value) {
         faceRightState = value;
         marioFaceRight.SetValue(faceRightState);
-        Debug.Log("Mario should face right: " + marioFaceRight.Value);
+        //Debug.Log("Mario should face right: " + marioFaceRight.Value);
     }
 
     public void Awake() {
         //startPos = Levels.levels[0].MarioPosition;
         startPos = transform.position;
-        if (this.playerParams != null) {
-            playerParams.ReloadParams();
-        }
-    }
-
-    public void ChangeScene(int level) {
-        startPos = Levels.levels[level].MarioPosition;
-        transform.position = startPos;
+        alive = false;
     }
   
 
     void Update() {
+        if (!alive) { return; }
         if (marioAnimator!=null) marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
     }
 
@@ -75,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Move(int value) {
-        if (mario == null) { return; }
+        if (!alive) { return; }
         Vector2 movement = new Vector2(value, 0);
         // check if it doesn't go beyond maxSpeed
         if (marioBody.velocity.magnitude < Constants.MarioMaxSpeed)
@@ -83,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void MoveCheck(int value) {
-        if (mario == null) { return; }
+        if (!alive) { return; }
         if (value == 0) {
             moving = false;
         } else {
@@ -96,8 +92,8 @@ public class PlayerMovement : MonoBehaviour
     
 
     public void Jump() {
-        if (mario == null) { return; }
-        if (alive && onGroundState) {
+        if (!alive) { return; }
+        if (onGroundState) {
             // jump
             marioBody.AddForce(Vector2.up * Constants.MarioUpSpeed, ForceMode2D.Impulse);
             onGroundState = false;
@@ -110,10 +106,10 @@ public class PlayerMovement : MonoBehaviour
 
 
     public void JumpHold() {
-        if (mario == null) { return; }
-        if (alive && jumpedState) {
+        if (!alive) { return; }
+        if (jumpedState) {
             // jump higher
-            marioBody.AddForce(Vector2.up * Constants.MarioUpSpeed * 20, ForceMode2D.Force);
+            marioBody.AddForce(Vector2.up * Constants.MarioUpSpeed * 30, ForceMode2D.Force);
             jumpedState = false;
 
         }
@@ -127,11 +123,21 @@ public class PlayerMovement : MonoBehaviour
         marioAnimator.SetBool("onGround", onGroundState);
     }
 
+    public void ToggleInvinsibility() {
+        Invincible = !Invincible;
+    }
 
+    public void DamageMario() {
+        // GameOverAnimationStart(); // last time Mario dies right away
 
+        // pass this to StateController to see if Mario should start game over
+        // since both state StateController and MarioStateController are on the same gameobject, it's ok to cross-refer between scripts
+        GetComponent<MarioStateController>().SetPowerup(PowerupType.Damage);
+
+    }
 
     public void OnCollisionEnter2D(Collision2D col) {
-        if (mario == null) { return; }
+        if (!alive) { return; }
         if ((col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Obstacles")) && !onGroundState) {
             onGroundState = onGroundCheck();
             
@@ -143,9 +149,11 @@ public class PlayerMovement : MonoBehaviour
             Vector2 collisionDirection = col.contacts[0].normal;
 
             // 如果是从上方碰撞
-            if (collisionDirection == Vector2.up) {
+            if (collisionDirection == Vector2.up || Invincible) {
+                col.gameObject.GetComponent<EnemyMovement>().KillGoomba();
                 // 增加分数
             } else {
+                DamageMario();
             }
         }
     }
@@ -161,10 +169,9 @@ public class PlayerMovement : MonoBehaviour
     }*/
 
     public void GameRestart() {
-
-        Debug.Log("Restart!");
-
-        
+        alive = true;
+        transform.position = startPos;
+        marioBody.velocity = Vector2.zero;
     }
 
     public bool onGroundCheck() {
@@ -188,8 +195,12 @@ public class PlayerMovement : MonoBehaviour
         // play jump sound
         if (mario == null) { return; }
         marioAudio.PlayOneShot(marioAudio.clip);
-
     }
 
+    public void GameOver() {
+        marioAudio.PlayOneShot(marioDeath);
+        marioBody.AddForce(Vector2.up * Constants.DeathImpulse, ForceMode2D.Impulse);
+        alive = false;
+    }
 
 }

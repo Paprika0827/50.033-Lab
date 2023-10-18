@@ -32,6 +32,6 @@ public class CameraController : MonoBehaviour
     }
     public void GameRestart() {
         // reset camera position
-        transform.position = startPosition;
+        this.transform.position = startPosition;
     }
 }

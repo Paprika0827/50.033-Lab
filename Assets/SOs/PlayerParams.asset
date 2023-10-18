@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: PlayerParams
   m_EditorClassIdentifier: 
   MarioSpeed: 10
-  MarioMaxSpeed: 20
+  MarioMaxSpeed: 15
   MarioUpSpeed: 8
-  deathImpulse: 10
+  DeathImpulse: 20
   StarmanTime: 10
-  flickerInterval: 0.1
+  FlickerInterval: 0.1
+  StarFlashSpeed: 1
   BoxSize: {x: 0.5, y: 1, z: 0}
   BigBoxSize: {x: 0, y: 0, z: 0}
   MaxDistance: 0.3

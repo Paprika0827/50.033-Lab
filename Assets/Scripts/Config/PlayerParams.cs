@@ -8,9 +8,10 @@ using UnityEngine;
         public float MarioSpeed = 10;
         public float MarioMaxSpeed = 20;
         public float MarioUpSpeed = 20;
-        public float deathImpulse = 20;
+        public float DeathImpulse = 20;
         public float StarmanTime = 10;
-    public float flickerInterval = 0.1f;
+    public float FlickerInterval = 0.1f;
+    public float StarFlashSpeed = 1f;
 
     public Vector3 BoxSize;
     public Vector3 BigBoxSize;
@@ -38,10 +39,11 @@ using UnityEngine;
             Constants.BoxSize = BoxSize;
             Constants.MaxDistance = MaxDistance;
             Constants.LayerMask = LayerMask;
-        Constants.deathImpulse = deathImpulse;
+        Constants.DeathImpulse = DeathImpulse;
         Constants.StarmanTime = StarmanTime;     
         Constants.BigBoxSize = BigBoxSize;
-        Constants.flickerInterval = flickerInterval;
+        Constants.FlickerInterval = FlickerInterval;
+        Constants.StarFlashSpeed = StarFlashSpeed;
         //reloadCallback?.Invoke();
         }
     }

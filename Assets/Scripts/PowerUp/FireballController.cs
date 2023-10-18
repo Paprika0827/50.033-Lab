@@ -30,8 +30,10 @@ public class FireballController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Enemy") {
+            collision.gameObject.GetComponent<EnemyMovement>().KillGoomba();
             // destroy self
             Destroy(gameObject);
+
         }
     }
 }

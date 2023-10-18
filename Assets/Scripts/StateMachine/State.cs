@@ -25,6 +25,7 @@ public class State : ScriptableObject {
         for (int i = 0; i < actions.Length; i++) actions[i].Act(controller);
     }
     public void DoSetupActions(StateController controller) {
+        Debug.Log("Set up "+this);
         for (int i = 0; i < setupActions.Length; i++) setupActions[i].Act(controller);
     }
     public void DoExitActions(StateController controller) {

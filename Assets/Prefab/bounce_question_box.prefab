@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5593186635098929401}
   - component: {fileID: 3277142149054992808}
-  - component: {fileID: 5956682539739596521}
-  - component: {fileID: 4326333043881873795}
-  - component: {fileID: 5021339786975491004}
+  - component: {fileID: 293753733705164593}
+  - component: {fileID: 294359551297426688}
   m_Layer: 7
   m_Name: bounce_question_box
   m_TagString: Obstacles
@@ -63,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &5956682539739596521
+--- !u!68 &293753733705164593
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,99 +92,37 @@ EdgeCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5, y: 0}
-  - {x: 0.5, y: 0}
+  - {x: -0.5, y: -0.51}
+  - {x: -0.43793082, y: -0.51}
+  - {x: 0.5, y: -0.51}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!68 &4326333043881873795
-EdgeCollider2D:
+--- !u!251 &294359551297426688
+PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7386767476923381258}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
+  m_UseColliderMask: 1
+  m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.5, y: 1}
-  - {x: -0.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!68 &5021339786975491004
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7386767476923381258}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1, y: -0.5}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.5, y: 1}
-  - {x: -0.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &8410036058662496003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,8 +182,69 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8136120780082051743, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6717837699352006246}
+    - targetCorrespondingSourceObject: {fileID: 8136120780082051743, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5139379574894218899}
   m_SourcePrefab: {fileID: 100100000, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+--- !u!1 &315038130224438684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8136120780082051743, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+  m_PrefabInstance: {fileID: 8410036058662496003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6717837699352006246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315038130224438684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd334a594a5c1a4fbaa51f26888ae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1afe73ac9fa9d244db6e4814fd00b136, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5139379574894218899}
+        m_TargetAssemblyTypeName: HitBoxQuestion, Assembly-CSharp
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5139379574894218899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315038130224438684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0339768c465e7894ba710531eb77c854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupPrefab: {fileID: 6518250144802318235, guid: a66cd43a163e4ea498e0aebbe24f631f, type: 3}
+  canBeBumped: 1
+  powerupGenerated: 0
+  coin: 0
+  questionBoxAnimator: {fileID: 839296623836811931}
+--- !u!95 &839296623836811931 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9156861382681408920, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}
+  m_PrefabInstance: {fileID: 8410036058662496003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2365830274263601851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6080823928510821816, guid: 98638c497282dee43bb9f7ff3af47804, type: 3}

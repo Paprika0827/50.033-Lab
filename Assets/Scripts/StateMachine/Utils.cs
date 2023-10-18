@@ -34,6 +34,7 @@ public abstract class StateController : MonoBehaviour {
     public State previousState;
     public State currentState;
     public State remainState;
+    public PowerupType currentPowerupType;
     public bool transitionStateChanged = false;
     [HideInInspector] public float stateTimeElapsed;
 

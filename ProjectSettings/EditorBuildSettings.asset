@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/World-1-1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/World-1-2.unity
     guid: fa7f4b3b130aeba48a763fb7a194caf9
+  - enabled: 1
+    path: Assets/Scenes/NewWorld-1-1.unity
+    guid: 260e61ded1f3381498d7e0cfdab9a9ba
+  - enabled: 1
+    path: Assets/Scenes/NewWorld-1-2.unity
+    guid: dc3bc605ec7240146bc89cd1db974bc2
   m_configObjects: {}

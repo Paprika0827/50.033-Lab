@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4517436295279363846}
   - component: {fileID: -1312096677777964054}
   - component: {fileID: 3859301980022607680}
+  - component: {fileID: 3791300135648428600}
+  - component: {fileID: 1817440492483987227}
   m_Layer: 7
   m_Name: brick
   m_TagString: Obstacles
@@ -180,3 +182,47 @@ SpringJoint2D:
   m_Distance: 1
   m_DampingRatio: 1
   m_Frequency: 5
+--- !u!114 &3791300135648428600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283533721457797976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71db9a23cedc05f469e8a9ae3b2d24b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 0}
+  canBeBumped: 1
+  coinGenerated: 0
+  coin: 0
+--- !u!114 &1817440492483987227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283533721457797976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd334a594a5c1a4fbaa51f26888ae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1afe73ac9fa9d244db6e4814fd00b136, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3791300135648428600}
+        m_TargetAssemblyTypeName: HitBoxBrics, Assembly-CSharp
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

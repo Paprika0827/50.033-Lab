@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BuffState {
-    Default = -1,
-    Invincible = 0,
-}
+
 
 public class BuffStateController : StateController {
-    public BuffState shouldBeNextState = BuffState.Default;
+    public MarioState shouldBeNextState = MarioState.Normal;
     private SpriteRenderer spriteRenderer;
 
     public override void Start() {
@@ -23,26 +20,28 @@ public class BuffStateController : StateController {
     }
     private IEnumerator BlinkSpriteRenderer() {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Color color = spriteRenderer.color;
         while (string.Equals(currentState.name, "Invincible", StringComparison.OrdinalIgnoreCase)) {
-            // Toggle the visibility of the sprite renderer
-            spriteRenderer.enabled = !spriteRenderer.enabled;
-
-            // Wait for the specified blink interval
-            yield return new WaitForSeconds(Constants.flickerInterval);
+            float t = Mathf.PingPong(Time.time * Constants.StarFlashSpeed, 1f);
+            Color rainbowColor = Color.HSVToRGB(t, 1f, 1f);
+            spriteRenderer.color = rainbowColor;
+            yield return null;
         }
 
-        spriteRenderer.enabled = true;
+        spriteRenderer.color = color;
     }
 
     // this should be added to the GameRestart EventListener as callback
     public void GameRestart() {
         // clear powerup
+        currentPowerupType = PowerupType.Default;
         // set the start state
         TransitionToState(startState);
     }
 
     public void SetPowerup(PowerupType i) {
         // currentPowerupType = i;
+        currentPowerupType = i;
     }
 
 }
